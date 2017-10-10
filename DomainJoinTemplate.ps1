@@ -2,9 +2,9 @@
 
 
 # Using Azure Key Vault and DSC
-$template = "https://raw.githubusercontent.com/sedelrio/domain-join-kv-dsc/master/domainjoin-kv-dsc-parameters.json"
-$parameters = "https://raw.githubusercontent.com/sedelrio/domain-join-kv-dsc/master/domainjoin-kv-dsc-parameters.json"
-New-AzureRmResourceGroupDeployment -Name DomainJoin  -ResourceGroupName "testdomainjoin" -TemplateFile $template -TemplateParameterFile $parameters
+$template = "C:\Users\sebastid\Documents\Documentation\Templates\Domain Join Azure Key Vault DSC\domainjoin-kv-dsc.json"
+$parameters = "C:\Users\sebastid\Documents\Documentation\Templates\Domain Join Azure Key Vault DSC\domainjoin-kv-dsc-parameters.json"
+New-AzureRmResourceGroupDeployment -Name DomainJoin  -ResourceGroupName "testdj" -TemplateFile $template -TemplateParameterFile $parameters
 
 
 #CLI
