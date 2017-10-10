@@ -1,12 +1,13 @@
 Configuration iisinstall
 {
 
-Param ( [string] $nodeName )
+#Param ( [string] $nodeName )
 
 Import-DscResource -ModuleName PSDesiredStateConfiguration -ModuleVersion "1.1"
 
-Node $nodeName
-  {
+#Node $nodeName
+Node localhost
+{
 
     WindowsFeature WebServerRole
     {
