@@ -1,24 +1,27 @@
 Configuration iisinstall
 {
+  param ($MachineName)
 
-#Param ( [string] $nodeName )
-
-Import-DscResource -ModuleName PSDesiredStateConfiguration -ModuleVersion "1.1"
-
-#Node $nodeName
-Node localhost
-{
-
-    WindowsFeature WebServerRole
+  Node $MachineName
+  {
+    #Install the IIS Role
+    WindowsFeature IIS
     {
-      Name = "Web-Server"
-      Ensure = "Present"
-    }     
-  }
-}
+      Ensure = “Present”
+      Name = “Web-Server”
+    }
 
-# Compile the configuration file to a MOF format
-#IISInstall
-    
- # Run the configuration on localhost
- #Start-DscConfiguration -Path .\IISInstall -Wait -Force -Verbose
+    #Install ASP.NET 4.5
+    WindowsFeature ASP
+    {
+      Ensure = “Present”
+      Name = “Web-Asp-Net45”
+    }
+
+     WindowsFeature WebServerManagementConsole
+    {
+        Name = "Web-Mgmt-Console"
+        Ensure = "Present"
+    }
+  }
+} 
