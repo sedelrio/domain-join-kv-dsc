@@ -1,8 +1,8 @@
 Configuration iisinstall
 {
-#  param ($MachineName)
+param ($vmname)
 
-  Node localhost
+  Node $vmname
   {
     #Install the IIS Role
     WindowsFeature IIS
